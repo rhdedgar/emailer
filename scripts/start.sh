@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo "email-confirm container v0.0.1"
+echo "emailer container v0.0.1"
 
 # This is useful so we can debug containers running inside of OpenShift that are
 # failing to start properly.
@@ -16,7 +16,7 @@ fi
 
 echo This container hosts the following applications:
 echo
-echo '/usr/local/bin/email-confirm'
+echo '/usr/local/bin/emailer'
 echo
-echo 'Start email-confirm binary'
-/usr/local/bin/email-confirm
+echo 'Start emailer binary'
+/usr/local/bin/emailer

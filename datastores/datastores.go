@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rhdedgar/email-confirm/localfile"
-	"github.com/rhdedgar/email-confirm/models"
+	"github.com/rhdedgar/emailer/localfile"
+	"github.com/rhdedgar/emailer/models"
 )
 
 var (
