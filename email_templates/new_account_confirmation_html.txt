@@ -1,0 +1,26 @@
+<div style="align:center; text-align: center;">
+<h2>Welcome to {{ .AppName }}</h2>
+<p>Clicking here will confirm your email address and complete your new account registration:</p>
+<br>
+<a href="{{ .ActivationLink }}" style="text-align: center; background-color: #32CD32; font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; text-decoration: none; padding: 12px 18px; color: #ffffff; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
+    <!--[if mso]>
+    <i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
+    <![endif]-->
+    <span style="mso-text-raise: 13pt;">Activate account</span>
+    <!--[if mso]>
+    <i style="letter-spacing: 25px; mso-font-width: -100%;">&nbsp;</i>
+    <![endif]-->
+</a>
+<br>
+
+<br>
+<i>Please note that this activation link will expire in 24 hours.</i>
+<br>
+<p text-align: center>Didn't register your email account with us? You can ignore this email, and no new account will be created. Another user may have typed your email address by mistake.
+</p>
+<br>
+<br>
+<p>{{ .CompanyInfo }}</p>
+<br>
+<br>
+</div>

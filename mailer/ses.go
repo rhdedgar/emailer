@@ -13,13 +13,17 @@ import (
 	"github.com/rhdedgar/email-confirm/localfile"
 )
 
+var (
+	subjectString = fmt.Sprintf("Activate your new %v account", datastores.AppSecrets.AppName)
+)
+
 func ConfirmEmail(stringChan <-chan string) error {
 	for {
 		select {
 		case url := <-stringChan:
 			err := sendConfirmation(url)
 			if err != nil {
-				fmt.Errorf("Error sending confirmation email: %v\n", err)
+				fmt.Printf("Error sending confirmation email: %v\n", err)
 			}
 		}
 	}
@@ -37,15 +41,16 @@ func sendConfirmation(msg string) error {
 
 	templateOptions := map[string]string{
 		"ActivationLink": msg,
-		"CompanyInfo":    "my company name and address",
+		"CompanyInfo":    datastores.AppSecrets.CompanyInfo,
+		"AppName":        datastores.AppSecrets.AppName,
 	}
 
-	TextBody, err := localfile.GetTemplate("./tmpl/email_templates/new_account_confirmation.txt", templateOptions)
+	TextBody, err := localfile.GetTemplate("./email_templates/new_account_confirmation.txt", templateOptions)
 	if err != nil {
 		return fmt.Errorf("Error getting confirmation email text template: %v\n", err)
 	}
 
-	HtmlBody, err := localfile.GetTemplate("./tmpl/email_templates/new_account_confirmation_html.txt", templateOptions)
+	HtmlBody, err := localfile.GetTemplate("./email_templates/new_account_confirmation_html.txt", templateOptions)
 	if err != nil {
 		return fmt.Errorf("Error getting confirmation email HTML template: %v\n", err)
 	}
@@ -81,7 +86,7 @@ func sendConfirmation(msg string) error {
 			},
 			Subject: &ses.Content{
 				Charset: aws.String(datastores.CharSet),
-				Data:    aws.String("Activate your new Guardimesh account"),
+				Data:    aws.String(subjectString),
 			},
 		},
 		Source: aws.String(datastores.Sender),
@@ -104,7 +109,6 @@ func sendConfirmation(msg string) error {
 		} else {
 			fmt.Println(err.Error())
 		}
-
 	}
 	fmt.Println("ses result: ", result)
 	return nil

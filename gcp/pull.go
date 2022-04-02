@@ -5,11 +5,12 @@ import (
 	"fmt"
 
 	"cloud.google.com/go/pubsub"
-	"github.com/rhdedgar/email-confim/channels"
-	"github.com/rhdedgar/email-confim/models"
+	"github.com/rhdedgar/email-confirm/channels"
+	"github.com/rhdedgar/email-confirm/models"
 )
 
 func PullMsgs(projectID, subID string) error {
+	fmt.Println("Starting PullMsgs")
 	ctx := context.Background()
 
 	client, err := pubsub.NewClient(ctx, projectID)

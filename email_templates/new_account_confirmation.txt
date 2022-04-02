@@ -1,0 +1,11 @@
+Welcome to {{ .AppName }}
+
+Clicking here will confirm your email address and complete your new account registration:
+
+{{ .ActivationLink }}
+
+Please note that the activation link will expire in 24 hours.
+
+Didn't register your email account with us? You can ignore this email, and no new account will be created. Another user may have typed your email address by mistake.
+
+{{ .CompanyInfo }}

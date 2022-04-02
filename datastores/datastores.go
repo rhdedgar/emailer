@@ -32,30 +32,13 @@ var (
 func init() {
 	path := os.Getenv("SECRET_CONFIG_FILE")
 	if path == "" {
-		path = "/secrets/dedgar_secrets.json"
+		path = "/secrets/emailer_secrets.json"
 	}
 	localfile.GetJSON(path, &AppSecrets)
 
 	if AppSecrets.GCPProjectID == "" {
 		AppSecrets.GCPProjectID = os.Getenv("GCP_PROJECT_ID")
 	}
-
-	/*
-		filePath := "/secrets/dedgar_secrets.json"
-		fileBytes, err := ioutil.ReadFile(filePath)
-
-		if err != nil {
-			fmt.Println("Error loading secrets json: ", err)
-			return
-		}
-		fmt.Println("printing filebytes")
-		fmt.Println(string(fileBytes[:]))
-
-		err = json.Unmarshal(fileBytes, &AppSecrets)
-		if err != nil {
-			fmt.Println("Error Unmarshaling secrets json: ", err)
-			return
-		}*/
 
 	fmt.Println("printing AppSecrets")
 	fmt.Printf("%+v\n", AppSecrets)
