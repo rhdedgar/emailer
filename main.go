@@ -26,7 +26,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Starting emailer v0.0.6")
+	fmt.Println("Starting emailer v0.0.7")
 
 	go mailer.ConfirmEmail(models.MailChan)
 
