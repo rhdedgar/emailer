@@ -40,6 +40,14 @@ func init() {
 		AppSecrets.GCPProjectID = os.Getenv("GCP_PROJECT_ID")
 	}
 
+	if AppSecrets.EmailTemplate == "" {
+		AppSecrets.GCPProjectID = os.Getenv("EMAIL_TEMPLATE")
+	}
+
+	if AppSecrets.HTMLEmailTemplate == "" {
+		AppSecrets.GCPProjectID = os.Getenv("HTML_EMAIL_TEMPLATE")
+	}
+
 	fmt.Println("printing AppSecrets")
 	fmt.Printf("%+v\n", AppSecrets)
 }

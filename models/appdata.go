@@ -29,4 +29,6 @@ type AppSecrets struct {
 	UserEmailTopic        string `json:"user_email_topic"`
 	UserEmailSubscription string `json:"user_email_subscription"`
 	CompanyInfo           string `json:"company_info"`
+	EmailTemplate         string `json:"email_template"`
+	HTMLEmailTemplate     string `json:"html_email_template"`
 }

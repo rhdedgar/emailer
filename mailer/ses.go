@@ -61,12 +61,12 @@ func sendConfirmation(msg string) error {
 		"AppName":        datastores.AppSecrets.AppName,
 	}
 
-	TextBody, err := localfile.GetTemplate("./email_templates/new_account_confirmation.txt", templateOptions)
+	TextBody, err := localfile.GetTemplate(datastores.AppSecrets.EmailTemplate, templateOptions)
 	if err != nil {
 		return fmt.Errorf("Error getting confirmation email text template: %v\n", err)
 	}
 
-	HtmlBody, err := localfile.GetTemplate("./email_templates/new_account_confirmation_html.txt", templateOptions)
+	HtmlBody, err := localfile.GetTemplate(datastores.AppSecrets.HTMLEmailTemplate, templateOptions)
 	if err != nil {
 		return fmt.Errorf("Error getting confirmation email HTML template: %v\n", err)
 	}
