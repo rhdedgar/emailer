@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-echo "emailer container v0.0.1"
-
 # This is useful so we can debug containers running inside of OpenShift that are
 # failing to start properly.
 
