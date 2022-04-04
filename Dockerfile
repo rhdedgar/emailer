@@ -8,7 +8,7 @@ RUN /usr/local/go/bin/go install github.com/rhdedgar/emailer@master
 FROM registry.access.redhat.com/ubi8/ubi-minimal as run
 
 ADD scripts/ /usr/local/bin/
-ADD email_templates/ /usr/local/bin/
+ADD email_templates/ /usr/local/bin/email_templates
 
 COPY --from=build /go/bin/emailer /usr/local/bin
 
